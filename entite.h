@@ -1,3 +1,12 @@
+/**
+* @file entite.h
+* @brief tache entite.
+* @author Ranim
+* @version 0.1
+* @date Apr 23, 2021
+*/
+
+
 #ifndef ENTITE_H_DEFINED
 #define ENTITE_H_DEFINED
 
@@ -8,6 +17,12 @@
 #include <math.h>
 #include <time.h>
 
+
+
+/**
+* @struct Cowboy
+* @brief struct for Cowboy
+*/
 typedef struct
 {
   SDL_Rect pos;
@@ -36,6 +51,10 @@ typedef struct
 
 } Cowboy;
 
+/**
+* @struct test
+* @brief struct for test 
+*/
 typedef struct
 {
   SDL_Surface *town_background;

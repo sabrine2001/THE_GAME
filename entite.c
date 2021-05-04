@@ -1,4 +1,19 @@
+/**
+* @file entite.c
+* @brief tache entite.
+* @author Ranim
+* @version 0.1
+* @date Apr 23, 2021
+*/
+
+
 #include "./entite.h"
+/**
+* @brief To initialize the enemie 
+* @param  enemies the cowboy 
+* @param  enemies-spawned
+* @return Nothing
+*/
 
 void init_enemie(Cowboy enemies[], int *enemies_spawned)
 {
@@ -82,6 +97,12 @@ void init_enemie(Cowboy enemies[], int *enemies_spawned)
   enemies[*enemies_spawned] = new_en;
   (*enemies_spawned)++;
 }
+/**
+* @brief To get_random_num
+* @param min the minimum
+* @param max the maximum 
+* @return int
+*/
 
 int get_random_num(int min, int max)
 {
@@ -90,12 +111,21 @@ int get_random_num(int min, int max)
 
   return rand_num;
 }
-
+/**
+* @brief To get_distance
+* @param player the thief 
+* @param enemie the cowboy
+* @return int
+*/
 int get_distance(SDL_Rect player, SDL_Rect enemie)
 {
   return sqrt(pow(player.x - enemie.x, 2) + pow(player.y - enemie.y, 2));
 }
-
+/**
+* @brief To move the enemie 
+* @param enemie the cowboy  
+* @return Nothing
+*/
 void deplacer(Cowboy *enemie)
 {
   if (enemie->is_moving)
@@ -106,7 +136,12 @@ void deplacer(Cowboy *enemie)
       enemie->pos.x += enemie->vx;
   }
 }
-
+/**
+* @brief To moveIA the enemie 
+* @param enemie the cowboy 
+* @param others 
+* @return Nothing
+*/
 void deplacerIA(Cowboy *enemie, test others)
 {
   // detect player
@@ -187,7 +222,14 @@ void deplacerIA(Cowboy *enemie, test others)
       enemie->direction = 0;
   }
 }
-
+/**
+* @brief To show the enemie
+* @param  enemies the cowboy
+* @param enemies_num 
+* @param  others 
+* @param surface the surface 
+* @return Nothing
+*/
 void afficher_enemie(Cowboy enemies[], int enemies_num, test others, SDL_Surface *surface)
 {
 
@@ -200,6 +242,12 @@ void afficher_enemie(Cowboy enemies[], int enemies_num, test others, SDL_Surface
   }
 }
 
+/**
+* @brief To animate the enemie 
+* @param  enemies the cowboy 
+* @param enemies_num 
+* @return Nothing
+*/
 void animer_enemie(Cowboy enemies[], int enemies_num)
 {
   static int timer = 0;
@@ -231,6 +279,13 @@ void animer_enemie(Cowboy enemies[], int enemies_num)
     }
   }
 }
+
+/**
+* @brief To collision  
+* @param player the thief 
+* @param enemie the cowboy 
+* @return int
+*/
 
 int collisionBB(test player, Cowboy enemie)
 {
